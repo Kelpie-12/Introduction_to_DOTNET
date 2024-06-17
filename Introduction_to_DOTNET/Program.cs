@@ -130,7 +130,11 @@ namespace Introduction_to_DOTNET
 			{
 				for (int j = 0; j < length; j++)
 				{
-					if (j % 2 == 0)
+					if ((j % 2 == 1) && i % 2 == 1)
+					{
+						Console.Write("+");
+					}
+					else if (j % 2 == 0 && i % 2 == 0)
 					{
 						Console.Write("+");
 					}
