@@ -149,19 +149,21 @@ namespace Introduction_to_DOTNET
 			Console.Write("Введите размер доски -> ");
 			int length = Convert.ToInt32(Console.ReadLine());
 			for (int i = 0; i < length; i++)
-			{
+			{				
+				Console.CursorTop = 5 + i;
 				for (int j = 0; j < length; j++)
 				{
+					Console.CursorLeft = 5+j;
 					if ((j % 2 == 1) && i % 2 == 1)
-					{
+					{						
 						Console.BackgroundColor = ConsoleColor.White;
 						Console.ForegroundColor = ConsoleColor.White;
 					}
 					else if (j % 2 == 0 && i % 2 == 0)
-					{
+					{						
 						Console.BackgroundColor = ConsoleColor.White;
 						Console.ForegroundColor = ConsoleColor.White;
-					}
+					}					
 					else
 					{
 						Console.BackgroundColor = ConsoleColor.Black;
@@ -171,6 +173,7 @@ namespace Introduction_to_DOTNET
 				}
 				Console.WriteLine();
 			}
+			Console.WriteLine();
 			Console.ResetColor();
 		}
 
