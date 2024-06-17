@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Introduction_to_DOTNET", "Introduction_to_DOTNET\Introduction_to_DOTNET.csproj", "{22D47003-2FC9-479B-AA31-D7B0FE2FEA97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_Types", "Data_Types\Data_Types.csproj", "{E9E8CBB1-1F76-4E5B-86A8-B113CFA4FB52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{22D47003-2FC9-479B-AA31-D7B0FE2FEA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D47003-2FC9-479B-AA31-D7B0FE2FEA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D47003-2FC9-479B-AA31-D7B0FE2FEA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9E8CBB1-1F76-4E5B-86A8-B113CFA4FB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E8CBB1-1F76-4E5B-86A8-B113CFA4FB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E8CBB1-1F76-4E5B-86A8-B113CFA4FB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E8CBB1-1F76-4E5B-86A8-B113CFA4FB52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

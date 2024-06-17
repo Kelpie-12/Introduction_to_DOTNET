@@ -1,4 +1,5 @@
 ﻿//#define Class_console
+//#define strings
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -239,11 +240,11 @@ namespace Introduction_to_DOTNET
 			Console.WriteLine(string.Format("{0} {1} {2}", first_name, second_name, age));
 			Console.WriteLine($"{first_name} {second_name} {age}");*/
 #endif
-
+#if strings
 			print_task_1();
 			print_task_2();
 			print_tack_3();
-			
+#endif
 
 		}
 	}
