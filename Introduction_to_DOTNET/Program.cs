@@ -150,10 +150,10 @@ namespace Introduction_to_DOTNET
 			int length = Convert.ToInt32(Console.ReadLine());
 			for (int i = 0; i < length; i++)
 			{				
-				Console.CursorTop = 5 + i;
+				//Console.CursorTop = 5 + i;
 				for (int j = 0; j < length; j++)
 				{
-					Console.CursorLeft = 5+j;
+					//Console.CursorLeft = 5+j;
 					if ((j % 2 == 1) && i % 2 == 1)
 					{						
 						Console.BackgroundColor = ConsoleColor.White;
