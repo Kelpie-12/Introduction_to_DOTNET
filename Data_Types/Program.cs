@@ -1,4 +1,5 @@
-﻿//#define intgral_types
+﻿//#define types_variables
+//#define intgral_types
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,7 @@ namespace Data_Types
 			Console.WriteLine(delimiter); 
 #endif
 			//ctrl +k+s
+#if types_variables
 			Console.WriteLine("float");
 			Console.WriteLine($"Занимает {sizeof(float)} байта");
 			Console.WriteLine($"Диапазон принимаемых значений {float.MinValue} ...{float.MaxValue}");
@@ -58,7 +60,10 @@ namespace Data_Types
 			Console.WriteLine("bool");
 			Console.WriteLine($"Занимает {sizeof(bool)} байта");
 			//Console.WriteLine($"Диапазон принимаемых значений {bool.MinValue} ...{bool.MaxValue}");
-			Console.WriteLine(delimiter);
+			Console.WriteLine(delimiter); 
+#endif
+
+
 		}
 	}
 }
