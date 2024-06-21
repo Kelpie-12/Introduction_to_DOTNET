@@ -2,7 +2,9 @@
 #define calc_2
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,29 +54,103 @@ namespace Calculator_v2._0
 			bool correct = true;
 			do
 			{
-				correct=true;
+				correct = true;
 				Console.Write("Введите простое арифметическое выражение -> ");
 				string expression = Console.ReadLine();
-				string s_operations = "+-/*";
-				String[] s_numbers = expression.Split(/*'/', '*', '-', '+'*/s_operations.ToCharArray());
-				s_numbers=s_numbers.Where(item=> item!="").ToArray();
-				double[] d_numbers = new double[s_numbers.Length];
-				for (int i = 0; i < s_numbers.Length; i++)
+				string expression_tmp = expression.Replace(" ", "");							
+				string tmp = "";				
+				List<double> d_numbers = new List<double>();
+				List<char> operations = new List<char>();			
+				bool x = true, xx = true;
+				for (int i = 0; xx != false;)
 				{
-					d_numbers[i] = Convert.ToDouble(s_numbers[i]);
-					Console.Write(d_numbers[i] + "\t");
-				}
-				Console.WriteLine();
-				char[] c_operations = expression.Where(item => s_operations.Contains(item)).ToArray();
-				for (int i = 0; i < c_operations.Length; i++)
+					if ((expression_tmp[expression_tmp.Length - 1] == '+' || expression_tmp[expression_tmp.Length - 1] == '-' || expression_tmp[expression_tmp.Length - 1] == '*' || expression_tmp[expression_tmp.Length - 1] == '/') || (expression_tmp[0] == '+' || expression_tmp[0] == '-' || expression_tmp[0] == '*' || expression_tmp[0] == '/'))
+					{
+						Console.Write("Значение введено не верно, попробуйте еще раз ");
+						correct = false;
+						break;
+					}
+					tmp = "";
+					x = true;
+					while (x)
+					{
+						if (i > expression_tmp.Length - 1)
+						{
+							xx = false;
+							break;
+						}
+						if (expression_tmp[i] != '+' && expression_tmp[i] != '-' && expression_tmp[i] != '*' && expression_tmp[i] != '/')
+						{
+							tmp += expression_tmp[i];
+							i++;
+						}
+						else
+						{
+							x = false;
+						}
+					}
+					if (tmp != "")
+					{
+						d_numbers.Add(Convert.ToDouble(tmp));
+						if (i > expression_tmp.Length || xx == false)
+						{
+							break;
+						}
+						operations.Add(expression_tmp[i]);
+						//index++;
+					}					
+					i++;
+				}				
+				if (correct!=false)
 				{
-					Console.Write(c_operations[i] + "\t");
+					x = true;
+					for (int i = 0; i < operations.Count;)
+					{
+						if (operations[i] == '*' || operations[i] == '/')
+						{
+							if (operations[i] == '*')
+							{
+								d_numbers[i] *= d_numbers[i + 1];
+							}
+							else if (operations[i] == '/')
+							{
+								d_numbers[i] /= d_numbers[i + 1];
+							}							
+							d_numbers.RemoveAt(i + 1);
+							operations.RemoveAt(i);
+							i = 0;
+						}
+						else
+						{
+							i++;
+						}
+
+					}
+					double rezalt = 0;
+					x = true;
+					for (int i = 0; x == true || i < operations.Count;)
+					{
+						if (operations.Count == 0)
+						{
+							rezalt = d_numbers[0];
+							x = false;
+							break;
+						}
+						if (operations[i] == '+')
+						{
+							d_numbers[i] += d_numbers[i + 1];
+						}
+						else if (operations[i] == '-')
+						{
+							d_numbers[i] -= d_numbers[i + 1];
+						}						
+						d_numbers.RemoveAt(i + 1);
+						operations.RemoveAt(i);
+						i = 0;
+					}
+					Console.WriteLine(rezalt);					
 				}
-				Console.WriteLine();
-				if (d_numbers.Length!=c_operations.Length+1)
-				{
-					correct = false;
-				}
+
 			} while (!correct);
 			//Main(args);
 		}
