@@ -57,10 +57,10 @@ namespace Calculator_v2._0
 				correct = true;
 				Console.Write("Введите простое арифметическое выражение -> ");
 				string expression = Console.ReadLine();
-				string expression_tmp = expression.Replace(" ", "");							
-				string tmp = "";				
+				string expression_tmp = expression.Replace(" ", "");
+				string tmp = "";
 				List<double> d_numbers = new List<double>();
-				List<char> operations = new List<char>();			
+				List<char> operations = new List<char>();
 				bool x = true, xx = true;
 				for (int i = 0; xx != false;)
 				{
@@ -98,10 +98,10 @@ namespace Calculator_v2._0
 						}
 						operations.Add(expression_tmp[i]);
 						//index++;
-					}					
+					}
 					i++;
-				}				
-				if (correct!=false)
+				}
+				if (correct != false)
 				{
 					x = true;
 					for (int i = 0; i < operations.Count;)
@@ -114,8 +114,14 @@ namespace Calculator_v2._0
 							}
 							else if (operations[i] == '/')
 							{
+								if (d_numbers[i + 1] == 0)
+								{
+									Console.Write("На ноль делить нельзя ");
+									correct = false;
+									break;
+								}
 								d_numbers[i] /= d_numbers[i + 1];
-							}							
+							}
 							d_numbers.RemoveAt(i + 1);
 							operations.RemoveAt(i);
 							i = 0;
@@ -124,31 +130,33 @@ namespace Calculator_v2._0
 						{
 							i++;
 						}
-
 					}
-					double rezalt = 0;
-					x = true;
-					for (int i = 0; x == true || i < operations.Count;)
+					if (correct != false)
 					{
-						if (operations.Count == 0)
+						double rezalt = 0;
+						x = true;
+						for (int i = 0; x == true || i < operations.Count;)
 						{
-							rezalt = d_numbers[0];
-							x = false;
-							break;
+							if (operations.Count == 0)
+							{
+								rezalt = d_numbers[0];
+								x = false;
+								break;
+							}
+							if (operations[i] == '+')
+							{
+								d_numbers[i] += d_numbers[i + 1];
+							}
+							else if (operations[i] == '-')
+							{
+								d_numbers[i] -= d_numbers[i + 1];
+							}
+							d_numbers.RemoveAt(i + 1);
+							operations.RemoveAt(i);
+							i = 0;
 						}
-						if (operations[i] == '+')
-						{
-							d_numbers[i] += d_numbers[i + 1];
-						}
-						else if (operations[i] == '-')
-						{
-							d_numbers[i] -= d_numbers[i + 1];
-						}						
-						d_numbers.RemoveAt(i + 1);
-						operations.RemoveAt(i);
-						i = 0;
+						Console.WriteLine(rezalt);
 					}
-					Console.WriteLine(rezalt);					
 				}
 
 			} while (!correct);
