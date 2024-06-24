@@ -19,7 +19,11 @@ namespace Recurtion_3._0
 			int n = Convert.ToInt16(Console.ReadLine());
 			try
 			{
-				Console.WriteLine($"{n}! = {Factorial(n)}");
+				DateTime start = DateTime.Now;
+				Console.WriteLine($"{n}! = {Factorial_3(n)}");
+				DateTime end = DateTime.Now;
+				TimeSpan duration = end- start;
+				Console.WriteLine($"Duration ; {duration.ToString("g")}");
 			}
 			catch (Exception ex)
 			{
@@ -38,31 +42,31 @@ namespace Recurtion_3._0
 			Elevator(floor - 1);
 			Console.WriteLine($"Вы на {floor} этаже");
 		}
-		static long Factorial(int n)
-		{
-			if (n == 0)
-			{
-				return 1;
-			}
-			long f = Factorial(n - 1) * n;
-			Console.WriteLine($"{n}! = {f}");
-			return f;
-		}
-
-		//static BigInteger Factorial_3(int n)
+		//static long Factorial(int n)
 		//{
 		//	if (n == 0)
 		//	{
 		//		return 1;
 		//	}
-		//	BigInteger f = 1;
-		//	for (int i = 1; i <= n; i++)
-		//	{
-		//		f *= i;
-		//		Console.WriteLine($"{i}! = {f}");
-		//	}
-		//	return f;			
+		//	long f = Factorial(n - 1) * n;
+		//	Console.WriteLine($"{n}! = {f}");			
+		//	return f;
 		//}
+
+		static BigInteger Factorial_3(int n)
+		{
+			if (n == 0)
+			{
+				return 1;
+			}
+			BigInteger f = 1;
+			for (int i = 1; i <= n; i++)
+			{
+				f *= i;
+				//Console.WriteLine($"{i}! = {f}");
+			}
+			return f;
+		}
 		//static BigInteger Factorial_2(int n)
 		//{
 		//	if (n == 0)
@@ -70,7 +74,7 @@ namespace Recurtion_3._0
 		//		return 1;
 		//	}
 		//	BigInteger f = Factorial_2(n - 1) * n;
-			//Console.WriteLine($"{n}! = {f}");
+		//	Console.WriteLine($"{n}! = {f}");
 		//	return f;
 		//}
 	}
