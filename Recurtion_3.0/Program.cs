@@ -16,8 +16,16 @@ namespace Recurtion_3._0
 			//int floor = Convert.ToInt32(Console.ReadLine());
 			//Elevator(floor);
 			Console.WriteLine("Введите число");
-			int n = Convert.ToInt32(Console.ReadLine());
-			Console.WriteLine($"{n}! = {Factorial_2(n)}");
+			int n = Convert.ToInt16(Console.ReadLine());
+			try
+			{
+				Console.WriteLine($"{n}! = {Factorial(n)}");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"{ex.GetType()}: {ex.Message}");			
+			}
+			
 		}
 		static void Elevator(int floor)
 		{
@@ -30,14 +38,14 @@ namespace Recurtion_3._0
 			Elevator(floor - 1);
 			Console.WriteLine($"Вы на {floor} этаже");
 		}
-		static int Factorial(int n)
+		static long Factorial(int n)
 		{
 			if (n == 0)
 			{
 				return 1;
 			}
-			int f = Factorial(n - 1) * n;
-			Console.WriteLine($"{n}! = {Factorial(n)}");
+			long f = Factorial(n - 1) * n;
+			Console.WriteLine($"{n}! = {f}");
 			return f;
 		}
 
@@ -55,15 +63,15 @@ namespace Recurtion_3._0
 		//	}
 		//	return f;			
 		//}
-		static BigInteger Factorial_2(int n)
-		{
-			if (n == 0)
-			{
-				return 1;
-			}
-			BigInteger f = Factorial_2(n - 1) * n;
-			//Console.WriteLine($"{n}! = {Factorial(n)}");
-			return f;
-		}
+		//static BigInteger Factorial_2(int n)
+		//{
+		//	if (n == 0)
+		//	{
+		//		return 1;
+		//	}
+		//	BigInteger f = Factorial_2(n - 1) * n;
+			//Console.WriteLine($"{n}! = {f}");
+		//	return f;
+		//}
 	}
 }
