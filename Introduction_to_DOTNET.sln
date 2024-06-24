@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion\Recu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion_2.0", "Recursion_2.0\Recursion_2.0.csproj", "{BCCA96F6-945D-4DD0-982D-849EDA60C015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recurtion_3.0", "Recurtion_3.0\Recurtion_3.0.csproj", "{439EB993-9D47-462B-B155-56E25FEA58A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{224C158C-357A-45ED-A6FE-A1ACF7C65EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{BCCA96F6-945D-4DD0-982D-849EDA60C015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCA96F6-945D-4DD0-982D-849EDA60C015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCA96F6-945D-4DD0-982D-849EDA60C015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439EB993-9D47-462B-B155-56E25FEA58A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439EB993-9D47-462B-B155-56E25FEA58A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439EB993-9D47-462B-B155-56E25FEA58A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439EB993-9D47-462B-B155-56E25FEA58A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{224C158C-357A-45ED-A6FE-A1ACF7C65EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{224C158C-357A-45ED-A6FE-A1ACF7C65EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{224C158C-357A-45ED-A6FE-A1ACF7C65EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{224C158C-357A-45ED-A6FE-A1ACF7C65EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
