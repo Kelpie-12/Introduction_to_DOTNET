@@ -57,110 +57,236 @@ namespace Calculator_v2._0
 				correct = true;
 				Console.Write("Введите простое арифметическое выражение -> ");
 				string expression = Console.ReadLine();
-				string expression_tmp = expression.Replace(" ", "");
-				string tmp = "";
-				List<double> d_numbers = new List<double>();
-				List<char> operations = new List<char>();
+				string expression_tmp = /*"((22+33)*(44-55)+88)/2"*/expression.Replace(" ", "");// ((22 + 33) * (44 - 55) + 88) / 2
+				string a = "";
 				bool x = true, xx = true;
 				for (int i = 0; xx != false;)
 				{
-					if ((expression_tmp[expression_tmp.Length - 1] == '+' || expression_tmp[expression_tmp.Length - 1] == '-' || expression_tmp[expression_tmp.Length - 1] == '*' || expression_tmp[expression_tmp.Length - 1] == '/') || (expression_tmp[0] == '+' || expression_tmp[0] == '-' || expression_tmp[0] == '*' || expression_tmp[0] == '/'))
+					if ((expression_tmp[expression_tmp.Length - 1] == '+' || expression_tmp[expression_tmp.Length - 1] == '-' || expression_tmp[expression_tmp.Length - 1] == '*' || expression_tmp[expression_tmp.Length - 1] == '/') || (expression_tmp[0] == '+' /*|| expression_tmp[0] == '-'*/ || expression_tmp[0] == '*' || expression_tmp[0] == '/'))
 					{
 						Console.Write("Значение введено не верно, попробуйте еще раз ");
 						correct = false;
 						break;
 					}
-					tmp = "";
+					#region 
+					//for (int pi = 0; xx != false;)
+					//{
+					//	tmp = "";
+					//	x = true;
+					//	while (x)
+					//	{
+					//		if (pi > expression_tmp.Length - 1)
+					//		{
+					//			xx = false;
+					//			break;
+					//		}
+					//		if (expression_tmp[pi] == '(' || expression_tmp[pi] == ')')
+					//		{
+					//			operations.Add(expression_tmp[pi]);
+					//			//pi++;
+					//			//tmp = "";	
+					//			x = false;
+					//			if (expression_tmp[pi] == ')')
+					//			{
+					//				pi++;
+					//				break;
+					//			}
+					//		}
+					//		else if (expression_tmp[pi] != '+' && expression_tmp[pi] != '-' && expression_tmp[pi] != '*' && expression_tmp[pi] != '/')
+					//		{
+					//			tmp += expression_tmp[pi];
+					//			pi++;
+					//		}
+					//		else
+					//		{
+					//			x = false;
+					//		}
+					//	}
+					//	if (tmp != "")
+					//	{
+					//		d_numbers.Add(Convert.ToDouble(tmp));
+					//		if (pi >= expression_tmp.Length || xx == false)
+					//		{
+					//			break;
+					//		}
+					//		operations.Add(expression_tmp[pi]);
+					//		//index++;
+					//	}
+					//	pi++;
+					//}
+					//tmp = "";
+					#endregion
+
 					x = true;
-					while (x)
+					int index = -1, index2 = 0;
+					for (int j = 0; j < expression_tmp.Length - 1; j++)
 					{
-						if (i > expression_tmp.Length - 1)
+						if (expression_tmp[j] == '(')
 						{
-							xx = false;
-							break;
-						}
-						if (expression_tmp[i] != '+' && expression_tmp[i] != '-' && expression_tmp[i] != '*' && expression_tmp[i] != '/')
-						{
-							tmp += expression_tmp[i];
-							i++;
-						}
-						else
-						{
-							x = false;
-						}
-					}
-					if (tmp != "")
-					{
-						d_numbers.Add(Convert.ToDouble(tmp));
-						if (i > expression_tmp.Length || xx == false)
-						{
-							break;
-						}
-						operations.Add(expression_tmp[i]);
-						//index++;
-					}
-					i++;
-				}
-				if (correct != false)
-				{
-					x = true;
-					for (int i = 0; i < operations.Count;)
-					{
-						if (operations[i] == '*' || operations[i] == '/')
-						{
-							if (operations[i] == '*')
+							index = j;
+							index2 = index + 1;
+							while (x)
 							{
-								d_numbers[i] *= d_numbers[i + 1];
-							}
-							else if (operations[i] == '/')
-							{
-								if (d_numbers[i + 1] == 0)
+								if (expression_tmp[index2] == ')')
 								{
-									Console.Write("На ноль делить нельзя ");
-									correct = false;
+									x = false;
+									j = expression_tmp.Length - 1;
 									break;
 								}
-								d_numbers[i] /= d_numbers[i + 1];
+								else if (expression_tmp[index2] == '(')
+								{
+									index = index2;
+									index2++;
+								}
+								else
+								{
+									index2++;
+								}
 							}
-							d_numbers.RemoveAt(i + 1);
-							operations.RemoveAt(i);
-							i = 0;
+						}
+					}
+
+					x = false;
+					if (index != -1)
+					{
+						x = true;
+						i = 0;
+						//Console.WriteLine(parsing(index, index2, expression_tmp));
+						for (int u = index; u != index2 + 1; u++)
+						{
+							a += expression_tmp[u];
+						}
+						expression_tmp = expression_tmp.Replace(a, Convert.ToString(parsing(index, index2, expression_tmp)));
+						a = "";
+					}
+					else
+					{
+						//if (x == false)
+						//{
+						//	Console.WriteLine(parsing(0, expression_tmp.Length, expression_tmp));
+						//}
+						Console.WriteLine(parsing(0, expression_tmp.Length, expression_tmp));
+						correct = true;
+						break;
+					}
+				}
+			} while (!correct);
+			//Main(args);
+		}
+
+		static double count(List<double> numbers, List<char> operators)
+		{
+			double rezalt = 0;
+			bool correct = true;
+			for (int i = 0; i < operators.Count;)
+			{
+				if (operators[i] == '*' || operators[i] == '/')
+				{
+					if (operators[i] == '*')
+					{
+						numbers[i] *= numbers[i + 1];
+					}
+					else if (operators[i] == '/')
+					{
+						if (numbers[i + 1] == 0)
+						{
+							Console.Write("На ноль делить нельзя ");
+							correct = false;
+							break;
+						}
+						numbers[i] /= numbers[i + 1];
+					}
+					numbers.RemoveAt(i + 1);
+					operators.RemoveAt(i);
+					i = 0;
+				}
+				else
+				{
+					i++;
+				}
+			}
+			if (correct != false)
+			{
+				for (int i = 0; ;)
+				{
+					if (operators.Count == 0)
+					{
+						rezalt = numbers[0];
+						break;
+					}
+					if (operators[i] == '+')
+					{
+						numbers[i] += numbers[i + 1];
+					}
+					else if (operators[i] == '-')
+					{
+						numbers[i] -= numbers[i + 1];
+					}
+					numbers.RemoveAt(i + 1);
+					operators.RemoveAt(i);
+					i = 0;
+				}
+			}
+			return rezalt;
+		}
+
+		static double parsing(int index, int index2, string tmp)
+		{
+			double rezalt = 1;
+			string tmp_in = "";
+			bool x = true;
+			List<double> d_numbers = new List<double>();
+			List<char> operations = new List<char>();
+			if (tmp[index] == '(')
+			{
+				index++;
+			}
+			while (index != index2)
+			{
+				if (index > tmp.Length - 1)
+				{
+					break;
+				}
+				if ((tmp[index] != '+' && tmp[index] != '-' && tmp[index] != '*' && tmp[index] != '/'))
+				{
+					tmp_in = "";
+					while (x)
+					{
+						if (index == index2)
+						{
+							break;
+						}
+						if ((tmp[index] != '+' && tmp[index] != '-' && tmp[index] != '*' && tmp[index] != '/') && tmp[index] != ')')
+						{
+							tmp_in += tmp[index];
+							index++;
 						}
 						else
 						{
-							i++;
+							break;
 						}
 					}
-					if (correct != false)
+					if (tmp_in != "")
 					{
-						double rezalt = 0;
-						x = true;
-						for (int i = 0; x == true || i < operations.Count;)
+						d_numbers.Add(Convert.ToDouble(tmp_in));
+						if (index == index2)
 						{
-							if (operations.Count == 0)
-							{
-								rezalt = d_numbers[0];
-								x = false;
-								break;
-							}
-							if (operations[i] == '+')
-							{
-								d_numbers[i] += d_numbers[i + 1];
-							}
-							else if (operations[i] == '-')
-							{
-								d_numbers[i] -= d_numbers[i + 1];
-							}
-							d_numbers.RemoveAt(i + 1);
-							operations.RemoveAt(i);
-							i = 0;
+							break;
 						}
-						Console.WriteLine(rezalt);
+						operations.Add(tmp[index]);
 					}
+					index++;
 				}
-
-			} while (!correct);
-			//Main(args);
+				else
+				{
+					if (tmp[index] == '-')
+					{
+						rezalt *= -1;
+					}
+					index++;
+				}
+			}
+			return rezalt *= count(d_numbers, operations);
 		}
 	}
 }
