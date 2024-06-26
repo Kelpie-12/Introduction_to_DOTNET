@@ -51,13 +51,14 @@ namespace Calculator_v2._0
 			}
 			
 #endif
+			
 			bool correct = true;
 			do
 			{
 				correct = true;
-				Console.Write("Введите простое арифметическое выражение -> ");
-				string expression = Console.ReadLine();
-				string expression_tmp = /*"((22+33)*(44-55)+88)/2"*/expression.Replace(" ", "");// ((22 + 33) * (44 - 55) + 88) / 2
+				//Console.Write("Введите простое арифметическое выражение -> ");
+				//string expression = Console.ReadLine();
+				string expression_tmp = "((22+33)*(44-55)+88)/2"/*expression.Replace(" ", "")*/;// ((22 + 33) * (44 - 55) + 88) / 2
 				string a = "";
 				bool x = true, xx = true;
 				for (int i = 0; xx != false;)
@@ -172,6 +173,7 @@ namespace Calculator_v2._0
 				}
 			} while (!correct);
 			//Main(args);
+	
 		}
 
 		static double count(List<double> numbers, List<char> operators)
@@ -233,6 +235,7 @@ namespace Calculator_v2._0
 		static double parsing(int index, int index2, string tmp)
 		{
 			double rezalt = 1;
+			int k = index;
 			string tmp_in = "";
 			bool x = true;
 			List<double> d_numbers = new List<double>();
@@ -247,6 +250,11 @@ namespace Calculator_v2._0
 				{
 					break;
 				}
+				//else if (tmp[k] == '-'||tmp[k+1]=='-')
+				//{
+				//	rezalt *= -1;
+				//	index++;
+				//}
 				if ((tmp[index] != '+' && tmp[index] != '-' && tmp[index] != '*' && tmp[index] != '/'))
 				{
 					tmp_in = "";
@@ -261,6 +269,11 @@ namespace Calculator_v2._0
 							tmp_in += tmp[index];
 							index++;
 						}
+						//else if (tmp[index] == '-' && k == index || k + 1 == index)
+						//{
+						//	tmp_in += tmp[index];
+						//	index++;
+						//}
 						else
 						{
 							break;
@@ -277,6 +290,7 @@ namespace Calculator_v2._0
 					}
 					index++;
 				}
+			
 				else
 				{
 					if (tmp[index] == '-')
@@ -286,6 +300,11 @@ namespace Calculator_v2._0
 					index++;
 				}
 			}
+			//if (d_numbers.Count == 1)
+			//{
+			//	return d_numbers[0] * -1;
+			//}
+
 			return rezalt *= count(d_numbers, operations);
 		}
 	}
