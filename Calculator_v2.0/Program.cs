@@ -234,7 +234,7 @@ namespace Calculator_v2._0
 
 		static double parsing(int index, int index2, string tmp)
 		{
-			double rezalt = 1;
+			double result = 1;
 			int k = index;
 			string tmp_in = "";
 			bool x = true;
@@ -243,6 +243,10 @@ namespace Calculator_v2._0
 			if (tmp[index] == '(')
 			{
 				index++;
+			}
+			else if (true)
+			{
+
 			}
 			while (index != index2)
 			{
@@ -295,7 +299,7 @@ namespace Calculator_v2._0
 				{
 					if (tmp[index] == '-')
 					{
-						rezalt *= -1;
+						result *= -1;
 					}
 					index++;
 				}
@@ -305,7 +309,7 @@ namespace Calculator_v2._0
 			//	return d_numbers[0] * -1;
 			//}
 
-			return rezalt *= count(d_numbers, operations);
+			return result *= count(d_numbers, operations);
 		}
 	}
 }
