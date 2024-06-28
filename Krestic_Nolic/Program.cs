@@ -23,7 +23,8 @@ namespace Krestic_Nolic
 				if (v == 'y')
 				{
 					Console.Clear();
-					game();
+					run = true;
+					//game();
 				}
 				else
 				{
