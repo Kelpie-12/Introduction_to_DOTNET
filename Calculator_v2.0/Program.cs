@@ -58,7 +58,7 @@ namespace Calculator_v2._0
 				correct = true;
 				//Console.Write("Введите простое арифметическое выражение -> ");
 				//string expression = Console.ReadLine();
-				string expression_tmp = "((22+33)*(44-55)+88)/2"/*expression.Replace(" ", "")*/;// ((22 + 33) * (44 - 55) + 88) / 2
+				string expression_tmp = "(11+(55+(22+33)/4-5)*2*3+3)*(3+2)"/*"(22+33*(44+55))/2"expression.Replace(" ", "")*/;// ((22 + 33) * (44 - 55) + 88) / 2
 				string a = "";
 				bool x = true, xx = true;
 				for (int i = 0; xx != false;)
@@ -243,11 +243,7 @@ namespace Calculator_v2._0
 			if (tmp[index] == '(')
 			{
 				index++;
-			}
-			else if (true)
-			{
-
-			}
+			}		
 			while (index != index2)
 			{
 				if (index > tmp.Length - 1)

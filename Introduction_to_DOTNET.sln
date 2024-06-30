@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krestic_Nolic", "Krestic_Nolic\Krestic_Nolic.csproj", "{FBBD6C66-F358-4C8F-8513-423F81B2AC65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csproj", "{BD203ABB-6AC0-4B9D-8B29-329F6FD45CA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{FBBD6C66-F358-4C8F-8513-423F81B2AC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBBD6C66-F358-4C8F-8513-423F81B2AC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBBD6C66-F358-4C8F-8513-423F81B2AC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD203ABB-6AC0-4B9D-8B29-329F6FD45CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD203ABB-6AC0-4B9D-8B29-329F6FD45CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD203ABB-6AC0-4B9D-8B29-329F6FD45CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD203ABB-6AC0-4B9D-8B29-329F6FD45CA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
