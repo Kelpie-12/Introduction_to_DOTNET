@@ -1,5 +1,5 @@
-﻿//#define single_dimensional_arrays
-//#define multi_dimensional_arrays
+﻿#define single_dimensional_arrays
+#define multi_dimensional_arrays
 #define jagged_arrays
 using System;
 using System.Collections.Generic;
